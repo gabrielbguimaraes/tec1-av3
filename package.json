@@ -1,0 +1,39 @@
+{
+  "name": "greencode-av3",
+  "version": "1.0.0",
+  "description": "Plataforma greencode de logística reversa de resíduos eletrônicos - AV3",
+  "type": "module",
+  "main": "dist/server.js",
+  "scripts": {
+    "setup": "npx prisma generate && npx prisma migrate deploy && npx tsx prisma/seed.ts",
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts",
+    "worker": "tsx src/queue/runWorker.ts",
+    "build": "tsc",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@fastify/cors": "^10.0.2",
+    "@fastify/jwt": "^9.0.4",
+    "@fastify/rate-limit": "^10.2.2",
+    "@fastify/swagger": "^9.4.2",
+    "@fastify/swagger-ui": "^5.2.2",
+    "@prisma/client": "^6.6.0",
+    "bcryptjs": "^2.4.3",
+    "bullmq": "^5.45.0",
+    "dotenv": "^16.4.7",
+    "fastify": "^5.2.0",
+    "ioredis": "^5.6.0",
+    "node-cron": "^3.0.3",
+    "prisma": "^6.6.0",
+    "simple-statistics": "^7.8.8"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^22.14.0",
+    "@types/node-cron": "^3.0.11",
+    "tsx": "^4.19.0",
+    "typescript": "^5.8.0",
+    "vitest": "^3.1.0"
+  }
+}
